@@ -1,21 +1,24 @@
 \ProvidesPackage{prelude}
 
+\RequirePackage{fancyhdr}
+
+%% Page Setup
+\DeclareOption{header}{
+  \pagestyle{fancy}
+  \fancyhead{}
+  \rhead{\thecurso}
+  \lhead{\thetitle}
+}
+
+\ProcessOptions\relax
+
 %% Language & Encoding
 \usepackage[spanish]{babel}
 
 \usepackage[utf8]{inputenc}
 
-%% Page Setup
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\rhead{\thecurso}
-\lhead{\thetitle}
-
-\usepackage{titling}
-
 %% Colors
-\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
 
 %% Refs
 \usepackage{nameref}
@@ -62,6 +65,3 @@ citestyle=apa
 \DefineBibliographyStrings{spanish}{%
 andothers = {et\addabbrvspace al\adddot}
 }
-
-\usepackage{titling}
-\newcommand\curso[1]{\def\@coursename{#1}}

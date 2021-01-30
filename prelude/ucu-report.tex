@@ -1,0 +1,27 @@
+\documentclass[12pt]{report}
+
+\usepackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
+\usepackage{prelude}
+\addbibresource{bibliografia.bib}
+
+\title{Un título para el ensayo}
+\newcommand{\thecurso}{El Nombre del Curso}
+\author{
+	Lucas Lois\\
+	Autor Dos\\
+	Autor Tres
+}
+\date{\today}
+
+\begin{document}
+\input{ucu-title}
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Capítulo Introductorio}
+
+\blindtext
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\printbibliography{}
+\end{document}

@@ -1,0 +1,28 @@
+El sistema desarrollado será una aplicación Cliente/Servidor. 
+Los usuarios podrán registrarse y autenticarse en el sistema mediante
+el uso de un \emph{nombre de usuario} único y una \emph{contraseña}
+(\autoref{secc:autenticacion}).
+
+Una vez ingresado, el usuario podrá ver todos los \emph{grupos} a los
+que pertenece, y leer los archivos compartidos en ellos. Un \emph{grupo} 
+consiste de uno o más usuarios que tienen acceso a un mismo conjunto de archivos.
+
+Cualquier ``miembro'' de un grupo puede subir archivos a él y leer los archivos
+del mismo, pero solamente el administrador (único por grupo) puede agregar
+nuevos usuarios como miembros. Para esto debe conocer el nombre de usuario
+de la persona que desea agregar (\autoref{secc:autorization}).
+
+La aplicación cliente, es de consola, y permite registrarse, iniciar una sesión, 
+crear y ver grupos y bajar y subir archivos.
+Para esta última opción se presenta al usuario un cuadro de diálogo para que
+indique en qué carpeta guardar un archivo a descargar o qué archivo subir.
+
+Es posible que se solicite al usuario que repita su contraseña para realizar
+algunas operaciones críticas (como bajar un archivo, o invitar miembros a un
+grupo).
+
+La aplicación servidor, que para los efectos de la defensa ejecutará en el
+mismo computador, se presta para ejecutar en un servidor conectado Internet, y
+se comunica con el cliente utilizando gRPC (Un protocolo basado en HTTP/2,
+alternativo a REST con HTTP+JSON).
+

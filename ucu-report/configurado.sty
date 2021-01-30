@@ -1,0 +1,58 @@
+\ProvidesPackage{configurado}
+
+\usepackage[a4paper,width=160mm,top=20mm,bottom=20mm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage{multirow}
+
+\usepackage{nameref}
+\usepackage{booktabs}
+
+\usepackage{tikz}
+\usetikzlibrary{babel}
+
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{import}
+\usepackage{float}
+\usepackage{hyperref}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\usepackage[
+backend=biber,
+block=ragged,
+style=apa,
+citestyle=apa
+]{biblatex}
+\usepackage{csquotes}
+\usepackage{booktabs}
+
+\DefineBibliographyStrings{spanish}{%
+andothers = {et\addabbrvspace al\adddot}
+}
+
+
+\renewcommand{\cite}{\parencite}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\graphicspath{ {img/} }
+
+\overfullrule=2cm
+
+
+\usepackage{enumitem}
+\usepackage[margin=2cm]{caption}
+
+\graphicspath{ {img/} }
+
+\usepackage{titling}
+\newcommand\curso[1]{\def\@coursename{#1}}
+
+\newcommand{\incfig}[1]{%
+	    \def\svgwidth{\columnwidth}
+	        \import{./figures/}{#1.pdf_tex}
+}

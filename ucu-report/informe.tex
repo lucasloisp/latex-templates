@@ -1,0 +1,38 @@
+\documentclass[12pt]{report}
+\usepackage{configurado}
+
+\addbibresource{bibliografia.bib} %Imports bibliography file
+
+\title{Sistema de Autenticación, Autorización y Cifrado}
+\curso{Seguridad Informática}
+\author{
+	Lucas Lois \\
+	Francisco Piria \\
+	José Andrés Puglia
+}
+\date{21 de Junio, 2020}
+
+\begin{document}
+\input{title}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Definición del Sistema}
+\input{chapters/definicion.tex}
+
+\chapter{Estudio de algoritmos}
+\input{chapters/algoritmos.tex}
+
+\chapter{Autenticación}
+\input{chapters/autenticacion.tex}
+
+\chapter{Autorización}
+\input{chapters/autorizacion.tex}
+
+\chapter{Cifrado de Archivos}
+\input{chapters/archivos.tex}
+
+\pagebreak
+\printbibliography{}
+\end{document}

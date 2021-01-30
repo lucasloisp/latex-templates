@@ -1,0 +1,19 @@
+\ProvidesPackage{listings-pseudo}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+\makeatother
+
+\algrenewcommand\algorithmicprocedure{\textbf{procedimiento}}
+\algrenewcommand\algorithmicif{\textbf{si}}
+\algrenewcommand\algorithmicthen{\textbf{entonces}}
+\algrenewcommand\algorithmicelse{\textbf{si no}}
+\algrenewcommand\algorithmicend{\textbf{fin}}
+\algrenewcommand\algorithmicrequire{\textbf{Pre:}}
+\algrenewcommand\algorithmicensure{\textbf{Post:}}
+\algrenewcommand\algorithmicforall{\textbf{para cada}}
+\algrenewcommand\algorithmicdo{\textbf{hacer}}
+\algrenewcommand{\algorithmiccomment}[1]{\hfill$\langle$ #1}

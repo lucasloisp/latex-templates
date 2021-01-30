@@ -1,0 +1,66 @@
+\ProvidesPackage{prelude}
+
+%% Language & Encoding
+\usepackage[spanish]{babel}
+
+\usepackage[utf8]{inputenc}
+
+%% Page Setup
+\usepackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{titling}
+
+%% Colors
+\usepackage[dvipsnames]{xcolor}
+
+%% Refs
+\usepackage{nameref}
+
+\usepackage{hyperref}
+
+%% Visuals
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+\usepackage{import}
+\graphicspath{ {img/} }
+\overfullrule=2cm
+\newcommand{\incfig}[1]{%
+	    \def\svgwidth{\columnwidth}
+      \import{./figures/}{#1.pdf_tex}
+}
+
+\usepackage{float}
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+%% Misc.
+\usepackage{blindtext}
+
+%% Code Snippets
+\usepackage{listingsutf8}
+\lstset{
+  numbers=left,
+  stepnumber=1,
+  emphstyle=\itshape,
+  showstringspaces=false
+}
+
+%% Bibliography
+\usepackage[
+backend=biber,
+block=ragged,
+style=apa,
+citestyle=apa
+]{biblatex}
+\DefineBibliographyStrings{spanish}{%
+andothers = {et\addabbrvspace al\adddot}
+}
+
+\usepackage{titling}
+\newcommand\curso[1]{\def\@coursename{#1}}

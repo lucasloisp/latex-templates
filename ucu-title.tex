@@ -1,25 +1,33 @@
+\makeatletter
 \begin{titlepage}
     \begin{center}
         \includegraphics[width=0.7\textwidth]{newUcu}
 
-		\vspace*{5cm}
+	\vspace*{3cm}
 
-		{\Huge \textbf{\thetitle}}
+	{\Huge \textbf{\thetitle} \par}
 
-        \vspace{0.5cm}
-		\makeatletter
-		{\LARGE \thecurso}
-		\makeatother
+	{\Large \@subtitle \par}
 
-        \vspace{3.5cm}
+	\vspace*{1.0cm}
 
-		\LARGE \theauthor
+	{\LARGE \@course \par}
+
+	\vspace*{3.5cm}
+
+	{\LARGE \theauthor \par}
+
+	\vspace*{1.0cm}
+
+	{\LARGE \@supervisor\\
+	{\large Orientador \par} \par}
 
         \vfill
 
-		{\Large Universidad Católica del Uruguay} \\
-		{\Large \thedate}
+	{\Large \@institute \par} \\
+	{\Large \thedate \par}
 
     \end{center}
 \end{titlepage}
+\makeatother
 

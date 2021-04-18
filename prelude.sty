@@ -1,12 +1,28 @@
 \ProvidesPackage{prelude}
 
+\RequirePackage{titling}
 \RequirePackage{fancyhdr}
 
+
 %% Page Setup
+\DeclareOption{prose}{
+  % copied from https://tex.stackexchange.com/a/196650/95423
+  \makeatletter
+  \newcommand{\@subtitle}{}
+  \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+  \newcommand{\@supervisor}{}
+  \newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
+  \newcommand{\@course}{}
+  \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
+  \newcommand{\@institute}{}
+  \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
+  \makeatother
+}
+
 \DeclareOption{header}{
   \pagestyle{fancy}
   \fancyhead{}
-  \rhead{\thecurso}
+  \rhead{\makeatletter \@course \makeatother}
   \lhead{\thetitle}
 }
 
@@ -66,14 +82,3 @@ citestyle=apa
 andothers = {et\addabbrvspace al\adddot}
 }
 
-\makeatletter
-% copied from https://tex.stackexchange.com/a/196650/95423
-\newcommand{\@supervisor}{}
-\newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
-\newcommand{\@institute}{}
-\newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
-\newcommand{\@course}{}
-\newcommand{\course}[1]{\renewcommand{\@course}{#1}}
-\newcommand{\@subtitle}{}
-\newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
-\makeatother

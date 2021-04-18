@@ -1,24 +1,27 @@
 \documentclass[12pt]{report}
-
 \usepackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
-\usepackage{titling}
-\usepackage[header]{prelude}
+\usepackage[header,prose]{prelude}
+
 \addbibresource{bibliografia.bib}
 
 \title{Title for the Document}
 \subtitle{A subtitle for the document}
-\course{Course the document is for}
-\institute{Universidad Católica del Uruguay}
+
 \author{
 	Lucas Lois\\
 	Autor Dos\\
 	Autor Tres
 }
+
+\course{Course the document is for}
+
+\institute{Universidad Católica del Uruguay}
 \supervisor{Ernesto Ocampo}
+
 \date{\today}
 
 \begin{document}
-\input{ucu-title}
+\input{title}
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Capítulo Introductorio}

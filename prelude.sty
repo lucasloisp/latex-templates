@@ -1,36 +1,24 @@
 \ProvidesPackage{prelude}
 
-\RequirePackage{titling}
-\RequirePackage{fancyhdr}
+\newif\if@flagcode\@flagcodefalse
+\DeclareOption{code}{\@flagcodetrue}
 
+\newif\if@flagemoji\@flagemojifalse
+\DeclareOption{emoji}{\@flagemojitrue}
 
-%% Page Setup
-\DeclareOption{prose}{
-  % copied from https://tex.stackexchange.com/a/196650/95423
-  \makeatletter
-  \newcommand{\@subtitle}{}
-  \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
-  \newcommand{\@supervisor}{}
-  \newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
-  \newcommand{\@course}{}
-  \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
-  \newcommand{\@institute}{}
-  \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
-  \makeatother
-}
+\newif\if@flagdraw\@flagdrawfalse
+\DeclareOption{draw}{\@flagdrawtrue}
 
-\DeclareOption{header}{
-  \pagestyle{fancy}
-  \fancyhead{}
-  \rhead{\makeatletter \@course \makeatother}
-  \lhead{\thetitle}
-}
+\newif\if@flagprose\@flagprosefalse
+\DeclareOption{prose}{\@flagprosetrue}
+
+\newif\if@flagheader\@flagheaderfalse
+\DeclareOption{header}{\@flagheadertrue}
 
 \ProcessOptions\relax
 
 %% Language & Encoding
 \usepackage[spanish]{babel}
-
 \usepackage[utf8]{inputenc}
 
 %% Colors
@@ -42,8 +30,9 @@
 \usepackage{hyperref}
 
 %% Visuals
+\usepackage{titling}
+\usepackage{fancyhdr}
 \usepackage{graphicx}
-
 \usepackage{enumitem}
 
 \usepackage{import}
@@ -62,15 +51,6 @@
 %% Misc.
 \usepackage{blindtext}
 
-%% Code Snippets
-\usepackage{listingsutf8}
-\lstset{
-  numbers=left,
-  stepnumber=1,
-  emphstyle=\itshape,
-  showstringspaces=false
-}
-
 %% Bibliography
 \usepackage[
 backend=biber,
@@ -82,3 +62,38 @@ citestyle=apa
 andothers = {et\addabbrvspace al\adddot}
 }
 
+\if@flagemoji
+  \usepackage{xltxtra}
+  \usepackage{xelatexemoji}
+\fi
+
+%% Code Snippets
+\if@flagcode
+  \usepackage{minted}
+\fi
+
+\if@flagdraw
+  \usepackage{tikz}
+  \usepackage{tikz-network}
+\fi
+
+\if@flagprose
+  % copied from https://tex.stackexchange.com/a/196650/95423
+  \makeatletter
+  \newcommand{\@subtitle}{}
+  \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
+  \newcommand{\@supervisor}{}
+  \newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
+  \newcommand{\@course}{}
+  \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
+  \newcommand{\@institute}{}
+  \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
+  \makeatother
+\fi
+
+\if@flagheader
+  \pagestyle{fancy}
+  \fancyhead{}
+  \rhead{\makeatletter \@course \makeatother}
+  \lhead{\thetitle}
+\fi

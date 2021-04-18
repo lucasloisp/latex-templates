@@ -31,9 +31,4 @@ templates to your use case will be fairly straightforward.
 
 Select what kind of document you will create (e.g. `ucu-report` or
 `ucu-slides`), and copy that file over to your working directory.
-Additionally, you must copy over the `prelude.sty` file, as well as (if you are
-showing code snippets) the `listings-*.sty` files that match the languages you
-will be using.
-
-The most important file to copy over is the `Makefile` file.
-
+Additionally, you must copy over the `prelude.sty` and `Makefile` files.

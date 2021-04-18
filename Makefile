@@ -5,7 +5,7 @@ CHPSRC  := $(wildcard $(CHAPTERS_DIR)/*.tex)
 FIG	:= $(FIGSRC:%.svg=%.pdf)
 FIGTEX	:= $(FIGSRC:%.svg=%.pdf_tex)
 
-informe.pdf: informe.tex title.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty
+informe.pdf: informe.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty
 	latexmk -xelatex -quiet informe.tex
 
 presentacion.pdf: presentacion.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty

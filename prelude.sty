@@ -17,10 +17,6 @@
 
 \ProcessOptions\relax
 
-%% Language & Encoding
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-
 %% Colors
 \usepackage{xcolor}
 
@@ -30,12 +26,12 @@
 \usepackage{hyperref}
 
 %% Visuals
-\usepackage{titling}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{enumitem}
 
 \usepackage{import}
+\usepackage{subcaption}
 \graphicspath{ {img/} }
 \overfullrule=2cm
 \newcommand{\incfig}[1]{%
@@ -45,6 +41,7 @@
 
 \usepackage{float}
 
+\usepackage{booktabs}
 \usepackage{tabularx}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
@@ -65,11 +62,13 @@ andothers = {et\addabbrvspace al\adddot}
 \if@flagemoji
   \usepackage{xltxtra}
   \usepackage{xelatexemoji}
+  \renewcommand{\xelatexemojipath}[1]{emojis/#1.pdf}
 \fi
 
 %% Code Snippets
 \if@flagcode
   \usepackage{minted}
+  \counterwithin{listing}{chapter}
 \fi
 
 \if@flagdraw
@@ -78,6 +77,7 @@ andothers = {et\addabbrvspace al\adddot}
 \fi
 
 \if@flagprose
+  \usepackage{titling}
   % copied from https://tex.stackexchange.com/a/196650/95423
   \makeatletter
   \newcommand{\@subtitle}{}
@@ -88,6 +88,8 @@ andothers = {et\addabbrvspace al\adddot}
   \newcommand{\course}[1]{\renewcommand{\@course}{#1}}
   \newcommand{\@institute}{}
   \newcommand{\institute}[1]{\renewcommand{\@institute}{#1}}
+  \newcommand{\@institutelogo}{}
+  \newcommand{\institutelogo}[1]{\renewcommand{\@institutelogo}{#1}}
   \makeatother
 \fi
 

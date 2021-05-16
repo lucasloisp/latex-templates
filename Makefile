@@ -10,9 +10,6 @@ FIGTEX	:= $(FIGSRC:%.svg=%.pdf_tex)
 informe.pdf: informe.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty
 	latexmk -xelatex -shell-escape informe.tex
 
-presentacion.pdf: presentacion.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty
-	latexmk -pdf -quiet presentacion.tex
-
 figures/%.pdf figures/%.pdf_tex &: figures/%.svg
 	inkscape --export-filename=$(<:.svg=.pdf) --export-latex --export-area-page $<
 

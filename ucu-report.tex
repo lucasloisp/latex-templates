@@ -1,26 +1,26 @@
 \documentclass[12pt]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document page set-up
 \usepackage[a4paper,width=150mm,top=30mm,bottom=30mm]{geometry}
+%% Language & Encoding
+\usepackage[english]{babel}
+%% Prelude
 \usepackage[header,prose,code,emoji]{prelude}
-
+%% Bibliography
 \addbibresource{bibliografia.bib}
-\renewcommand{\xelatexemojipath}[1]{emojis/#1.pdf}
-\counterwithin{listing}{chapter}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Title for the Document}
 \subtitle{A subtitle for the document}
-
+\course{Name of the Course}
+\institute{Universidad Católica del Uruguay}
+\institutelogo{img/ucu}
 \author{
-	Lucas Lois\\
+	Lucas Lois \and
 	Jane Doe
 }
-
-\course{Course the document is for}
-
-\institute{Universidad Católica del Uruguay}
 \supervisor{John Smith}
-
 \date{\today}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \input{chapters/title}
 \tableofcontents

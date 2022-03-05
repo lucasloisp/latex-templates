@@ -7,8 +7,8 @@ CHPSRC  := $(wildcard $(CHAPTERS_DIR)/*.tex)
 FIG	:= $(FIGSRC:%.svg=%.pdf)
 FIGTEX	:= $(FIGSRC:%.svg=%.pdf_tex)
 
-informe.pdf: informe.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty *.cls
-	latexmk -pdflatex -shell-escape informe.tex
+article.pdf: article.tex $(FIG) $(FIGTEX) bibliografia.bib $(CHPSRC) *.sty *.cls
+	latexmk -pdflatex -shell-escape article.tex
 
 figures/%.pdf figures/%.pdf_tex &: figures/%.svg
 	inkscape --export-filename=$(<:.svg=.pdf) --export-latex --export-area-page $<

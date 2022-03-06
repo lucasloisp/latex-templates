@@ -4,8 +4,6 @@ GRAPHIC_DIR = figures
 CHAPTERS_DIR = chapters
 FIGSRC	:= $(wildcard $(GRAPHIC_DIR)/*.svg)
 CHPSRC  := $(wildcard $(CHAPTERS_DIR)/*.tex)
-FIG	:= $(FIGSRC:%.svg=%.pdf)
-FIGTEX	:= $(FIGSRC:%.svg=%.pdf_tex)
 
 all : article.pdf slides.pdf
 

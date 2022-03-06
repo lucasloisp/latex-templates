@@ -53,5 +53,28 @@
 \renewcommand\cite{\unskip~\oldcite}
 
 \RequirePackage{graphicx}
+\RequirePackage{subcaption}
+\RequirePackage{svg}
+
+\usepackage{float}
+
+\RequirePackage{xcolor}
+
+\RequirePackage{tikz}
+\RequirePackage{tikz-network}
+
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+
+\RequirePackage{titling}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{\theauthor}
+\fancyhead[L]{\rightmark}
+
+\RequirePackage{enumitem}
+
+\RequirePackage{booktabs}
 
 \RequirePackage{minted}

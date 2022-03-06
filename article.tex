@@ -6,7 +6,10 @@
 \title{Sample Article}
 \author{Lucas Lois Pelufo}
 \date{\today}
+
 \addbibresource{bibliografia.bib}
+\graphicspath{{img/}}
+\svgpath{{figures/}}
 
 \begin{document}
 
@@ -21,7 +24,7 @@
 \section{Programming}
 
 Inline code samples: \mintinline{c}{int} or function calls like \mintinline{python}{print(x**2)}.
-We also allow code blocks, as follows, or even floating listings (\ref{l:python-hello-world}).
+We also allow code blocks, as follows, or even floating listings like \cref{l:python-hello-world}.
 
 \begin{minted}{c}
 int main() {
@@ -39,6 +42,55 @@ def main():
 \caption{We can have code as floats, Python in this case.}
 \label{l:python-hello-world}
 \end{listing}
+
+\section{Figures}
+
+Figures drawn as svg can be brought in with the \texttt{\\includesvg} command as graphics, such as \cref{fig:latex-logo}.
+Traditional image types can de added with the \texttt{\\includegraphics} command, as in \cref{fig:ucu-logo}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{ucu}
+    \caption{An image logo}\label{fig:ucu-logo}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includesvg[width=\textwidth]{LaTeX_logo}
+    \caption{\LaTeX\ logo}\label{fig:latex-logo}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \Vertex[x=2,y=-1,label=R]{R}
+        \Vertex[label=A]{A}
+        \Vertex[y=-2,label=C]{B}
+        \Edge[Direct,label=N,style={dashed}](A)(R)
+        \Edge[Direct,label=N-1,style={dashed}](B)(R)
+        \Edge[RGB,color={127,201,127}](A)(B)
+    \end{tikzpicture}
+    \caption{A \texttt{tikz} diagram}
+\end{figure}
+
+\section{Tables}
+
+See \cref{table:misc}.
+
+\begin{table}
+\centering
+\begin{tabular}{lccccl}\toprule
+      & \multicolumn{3}{c}{\(a = b\)} & \multicolumn{2}{c}{\(c + d\)} \\
+      \cmidrule(lr){2-4}\cmidrule(lr){5-6}
+      & \(mv\)  & Rel.~err & Time    & \(mv\)  & Rel.~err \\\midrule
+Lorem & 11034   & 1.3e-7   & 3.9     & 15846   & 2.7e-11  \\
+Ipsum & 21952   & 1.3e-7   & 6.2     & 31516   & 2.7e-11  \\
+Dolor & 15883   & 5.2e-8   & 7.1     & 32023   & 1.1e-11  \\
+Sit   & 11180   & 8.0e-9   & 4.3     & 17348   & 1.5e-11  \\\bottomrule
+\end{tabular}
+\caption{A miscellaneous data table}
+\label{table:misc}
+\end{table}
 
 \Blinddocument
 

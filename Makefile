@@ -3,6 +3,9 @@ CHAPTER_TEX := $(wildcard $(CHAPTER_DIR)/*.tex)
 
 SVG_DIR = figures
 SVG_FILES := $(wildcard $(SVG_DIR)/*.svg)
+SVG_RENDER_DIR = svg-inkscape
+SVG_PDF := $(wildcard $(SVG_RENDER_DIR)/*.pdf)
+SVG_TEX := $(wildcard $(SVG_RENDER_DIR)/*.pdf_tex)
 
 IMG_PNG := $(wildcard img/*.png)
 
@@ -29,10 +32,8 @@ $(PLANTUML_SVG): $(SVG_DIR)/%.svg : $(PLANTUML_DIR)/%.plantuml plantuml.jar
 plantuml.jar:
 	curl -sSfL $(PLANTUML_URL) -o plantuml.jar
 
-
 clean:
-	rm -f $(SVG_DIR)/*.pdf
-	rm -f $(SVG_DIR)/*.pdf_tex
+	rm -f $(PLANTUML_SVG) $(SVG_PDF) $(SVG_TEX)
 	latexmk -C
 
 .PHONY: clean all

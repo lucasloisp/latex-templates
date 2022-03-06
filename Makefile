@@ -15,20 +15,20 @@ PLANTUML_URL = https://sourceforge.net/projects/plantuml/files/plantuml.jar/down
 PLANTUML_SRC := $(wildcard $(PLANTUML_DIR)/*.plantuml)
 PLANTUML_SVG := $(addprefix $(SVG_DIR)/, $(addsuffix .svg, $(notdir $(basename $(PLANTUML_SRC)))))
 
-
 all : article.pdf slides.pdf
 
 article.pdf: article.tex $(CHAPTER_TEX) $(SVG_FILES) $(IMG_PNG) $(BIB_FILE) $(CLASS_FILE) $(PLANTUML_SVG)
 	latexmk -pdflatex -shell-escape article.tex
 
-$(PLANTUML_SVG): $(SVG_DIR)/%.svg : diagrams/%.plantuml plantuml.jar
+slides.pdf: slides.tex $(SVG_FILES) $(IMG_PNG) $(CLASS_FILE) $(PLANTUML_SVG)
+	latexmk -pdflatex -shell-escape slides.tex
+
+$(PLANTUML_SVG): $(SVG_DIR)/%.svg : $(PLANTUML_DIR)/%.plantuml plantuml.jar
 	java -jar plantuml.jar -o ../$(SVG_DIR)/ -tsvg $<
 
 plantuml.jar:
 	curl -sSfL $(PLANTUML_URL) -o plantuml.jar
 
-slides.pdf: slides.tex $(PLANTUML_SVG) $(IMG_PNG) $(SVG_FILES) *.sty *.cls
-	latexmk -pdflatex -shell-escape slides.tex
 
 clean:
 	rm -f $(SVG_DIR)/*.pdf

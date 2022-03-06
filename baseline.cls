@@ -1,6 +1,52 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{baseline}[2022/03/05 Baseline article template]
 
+\newif\if@flagslides\@flagslidesfalse
+\DeclareOption{slides}{\@flagslidestrue}
+
+\newif\if@flagdark\@flagdarkfalse
+\DeclareOption{dark}{\@flagdarktrue}
+
+\ProcessOptions\relax
+
+\PassOptionsToPackage{T1}{fontenc}
+\RequirePackage{fontenc}
+
+\if@flagslides
+
+\PassOptionsToClass{14pt}{beamer}
+\LoadClass{beamer}
+
+\setbeamertemplate{footline}{}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamerfont{date}{size=\footnotesize}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{frametitle}{series=\fontseries{regular},parent=structure}
+\setbeamerfont{title}{series=\fontseries{medium}}
+
+\if@flagdark
+\usecolortheme[RGB={79,119,163}]{structure}
+\definecolor{SlideBg}{RGB}{0,0,0}
+\definecolor{TextColor}{RGB}{217,217,217}
+\setbeamerfont{section in toc}{series=\fontseries{regular}}
+\else
+\usecolortheme[RGB={5,46,102}]{structure}
+\definecolor{SlideBg}{RGB}{237,237,237}
+\definecolor{TextColor}{RGB}{67,67,67}
+\fi
+\setbeamercolor{normal text}{bg=SlideBg,fg=TextColor}
+
+\PassOptionsToPackage{defaultfam}{montserrat}
+\PassOptionsToPackage{thin}{montserrat}
+\PassOptionsToPackage{semibold}{montserrat}
+\PassOptionsToPackage{tabular}{montserrat}
+\PassOptionsToPackage{lining}{montserrat}
+\RequirePackage{montserrat}
+\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+\else
+
 \PassOptionsToClass{12pt}{article}
 \PassOptionsToClass{a4paper}{article}
 \LoadClass{article}
@@ -26,8 +72,6 @@
 \PassOptionsToPackage{shrink=10}{microtype}
 \RequirePackage{microtype}
 
-\PassOptionsToPackage{T1}{fontenc}
-\RequirePackage{fontenc}
 \RequirePackage{inconsolata}
 
 \PassOptionsToPackage{oldstyle}{XCharter}
@@ -52,13 +96,9 @@
 \let\oldcite\cite
 \renewcommand\cite{\unskip~\oldcite}
 
-\RequirePackage{graphicx}
 \RequirePackage{subcaption}
-\RequirePackage{svg}
 
-\usepackage{float}
-
-\RequirePackage{xcolor}
+\RequirePackage{float}
 
 \RequirePackage{tikz}
 \RequirePackage{tikz-network}
@@ -73,8 +113,15 @@
 \fancyhead[R]{\theauthor}
 \fancyhead[L]{\rightmark}
 
+\fi
+
+\RequirePackage{xcolor}
+
 \RequirePackage{enumitem}
 
 \RequirePackage{booktabs}
+
+\RequirePackage{graphicx}
+\RequirePackage{svg}
 
 \RequirePackage{minted}

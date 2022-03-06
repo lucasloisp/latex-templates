@@ -1,0 +1,60 @@
+\documentclass[slides,dark]{baseline}
+
+\usepackage[english]{babel}
+\usepackage[math]{blindtext}
+
+\graphicspath{{img/}}
+\svgpath{{figures/}}
+
+\title[SLIDES]{Sample Slideshow}
+\author[Lois]{
+  Lucas Lois Pelufo \\[12pt]
+  John Smith \\[-10pt]
+  {\tiny Title}
+}
+\institute[CMP]{Long Form Company Name}
+\date{\today}
+\logo{\includesvg[height=3em]{LaTeX_logo}}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{First section}
+
+\begin{frame}
+  \frametitle{Blind text}
+  \blindtext
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Code Sample}
+
+\begin{minted}{python}
+def main():
+    print("hello, world")
+    return 0
+\end{minted}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tabulars}
+\centering
+
+\begin{tabular}{lccl}\toprule
+      & \multicolumn{3}{c}{\(a = b\)} \\
+      \cmidrule(lr){2-4}
+      & \(mv\)  & Rel.~err & Time \\\midrule
+Lorem & 11034   & 1.3e-7   & 3.9  \\
+Ipsum & 21952   & 1.3e-7   & 6.2  \\
+Dolor & 15883   & 5.2e-8   & 7.1  \\
+Sit   & 11180   & 8.0e-9   & 4.3  \\\bottomrule
+\end{tabular}
+\end{frame}
+
+\end{document}

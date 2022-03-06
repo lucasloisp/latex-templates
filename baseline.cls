@@ -4,8 +4,15 @@
 \newif\if@flagslides\@flagslidesfalse
 \DeclareOption{slides}{\@flagslidestrue}
 
+\newif\if@flagslidenotes\@flagslidenotesfalse
+\DeclareOption{notes}{\@flagslidenotestrue}
+
 \newif\if@flagdark\@flagdarkfalse
 \DeclareOption{dark}{\@flagdarktrue}
+
+\DeclareOption{draft}{
+  \PassOptionsToPackage{draft}{graphicx}
+}
 
 \ProcessOptions\relax
 
@@ -24,6 +31,12 @@
 \setbeamerfont{institute}{size=\footnotesize}
 \setbeamerfont{frametitle}{series=\fontseries{regular},parent=structure}
 \setbeamerfont{title}{series=\fontseries{medium}}
+
+\if@flagslidenotes
+\RequirePackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+\setbeamertemplate{note page}[plain]
+\fi
 
 \if@flagdark
 \usecolortheme[RGB={79,119,163}]{structure}
@@ -113,11 +126,11 @@
 \fancyhead[R]{\theauthor}
 \fancyhead[L]{\rightmark}
 
+\RequirePackage{enumitem}
+
 \fi
 
 \RequirePackage{xcolor}
-
-\RequirePackage{enumitem}
 
 \RequirePackage{booktabs}
 
